@@ -11,6 +11,9 @@
 # next.js
 /.next/
 /out/
+/renderer/.next/
+/renderer/out/
+/dist/
 
 # production
 /build
@@ -50,6 +53,3 @@ sketch
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
-
-### next.js ###
-/renderer/.next/*
