@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Layout from '../components/MyLayout';
 
 export default class extends Component {
   state = {
@@ -16,24 +17,34 @@ export default class extends Component {
     global.ipcRenderer.removeListener('message', this.handleMessage)
   }
 
-  handleMessage = (event, message) => {
+  handleMessage = (_: any, message: string) => {
     // receive a message from the main process and save it in the local state
     this.setState({ message })
   }
 
-  handleChange = event => {
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ input: event.target.value })
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     global.ipcRenderer.send('message', this.state.input)
     this.setState({ message: null })
   }
 
+  /*
+  <style jsx>{`
+          h1 {
+            color: red;
+            font-size: 50px;
+          }
+        `}</style>
+  
+  */
+
   render() {
     return (
-      <div>
+      <Layout>
         <h1>Hello Electron!</h1>
 
         {this.state.message && <p>{this.state.message}</p>}
@@ -41,14 +52,8 @@ export default class extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text" onChange={this.handleChange} />
         </form>
-
-        <style jsx>{`
-          h1 {
-            color: red;
-            font-size: 50px;
-          }
-        `}</style>
-      </div>
+        
+      </Layout>
     )
   }
 }
