@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import Layout from '../components/MyLayout';
+import Layout from '../components/Layout';
 import { IpcRendererEvent } from 'electron';
 
 export default class extends Component {
@@ -33,16 +33,6 @@ export default class extends Component {
     this.setState({ message: null })
   }
 
-  /*
-  <style jsx>{`
-          h1 {
-            color: red;
-            font-size: 50px;
-          }
-        `}</style>
-  
-  */
-
   render() {
     return (
       <Layout>
@@ -53,7 +43,12 @@ export default class extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text" onChange={this.handleChange} />
         </form>
-        
+        <style jsx>{`
+          h1 {
+            color: blue;
+            font-size: 50px;
+          }
+        `}</style>
       </Layout>
     )
   }

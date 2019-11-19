@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "build": "next build renderer && next export renderer",
-    "dist": "npm run build && electron-builder --dir"
+    "dist": "npm run build && electron-builder --dir",
+    "type-check": "tsc"
   },
   "build": {
     "asar": false,
