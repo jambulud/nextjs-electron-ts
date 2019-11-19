@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import Layout from '../components/MyLayout';
+import { IpcRendererEvent } from 'electron';
 
 export default class extends Component {
   state = {
@@ -17,7 +18,7 @@ export default class extends Component {
     global.ipcRenderer.removeListener('message', this.handleMessage)
   }
 
-  handleMessage = (_: any, message: string) => {
+  handleMessage = (_: IpcRendererEvent, message: string) => {
     // receive a message from the main process and save it in the local state
     this.setState({ message })
   }
