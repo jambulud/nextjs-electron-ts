@@ -45,7 +45,7 @@ export default class extends Component {
         </form>
         <style jsx>{`
           h1 {
-            color: blue;
+            color: green;
             font-size: 50px;
           }
         `}</style>

@@ -1,11 +1,11 @@
 // Native
-const { join } = require('path')
-const { format } = require('url')
+import { join } from 'path';
+import { format } from 'url';
 
 // Packages
-const { BrowserWindow, app, ipcMain } = require('electron')
-const isDev = require('electron-is-dev')
-const prepareNext = require('electron-next')
+import { BrowserWindow, app, ipcMain } from 'electron';
+import isDev from 'electron-is-dev';
+import prepareNext from 'electron-next';
 
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
@@ -23,10 +23,10 @@ app.on('ready', async () => {
   const url = isDev
     ? 'http://localhost:8000/start'
     : format({
-        pathname: join(__dirname, '../renderer/start.html'),
-        protocol: 'file:',
-        slashes: true,
-      })
+      pathname: join(__dirname, '../../renderer/start.html'),
+      protocol: 'file:',
+      slashes: true,
+    })
 
   mainWindow.loadURL(url)
 })
